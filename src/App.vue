@@ -10,12 +10,13 @@
       <div v-if="data.results?.length">
         <hr />
         <div v-for="album in data.results" :key="album.artistId">
-          <h2>
+          <!-- <h2>
             Album Name: {{ album.collectionName }} [{{ album.releaseDate }}]
           </h2>
           <h4>Artwork</h4>
           <img :src="album.artworkUrl100" alt="" />
-          <h4>Price: {{ album.collectionPrice }}</h4>
+          <h4>Price: {{ album.collectionPrice }}</h4> -->
+          <TheShowAlbum :album="album" />
         </div>
       </div>
     </form>
@@ -26,6 +27,7 @@
 import { ref } from "vue";
 import { itunesSearch } from "./services/iTunesAPI";
 import type { ItunesTypes } from "./types/ItunesTypes.interface";
+import TheShowAlbum from "./components/TheShowAlbum.vue";
 
 let data = ref<ItunesTypes>({});
 let searchText = ref("");
